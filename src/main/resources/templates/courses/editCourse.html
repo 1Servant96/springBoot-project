@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update course</title>
+</head>
+<body>
+<form th:action="@{/{companyId}/{id}/saveUpdateCourse(id=${course.id}, companyId=${companyId})}"
+      th:object="${course}">
+
+    <label for="name">Enter the name:</label>
+    <input type="text" th:field="*{courseName}" id="name"/>
+    <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{courseName}">Name errors</div>
+
+    <br>
+    <label for="age">Enter the company:</label>
+    <input type="text" th:field="*{company}" id="age"/>
+    <div style="color: red" th:if="${#fields.hasErrors('age')}" th:errors="*{company}">company errors</div>
+
+    <br>
+    <label for="month">Enter the email:</label>
+    <input type="text" th:field="*{duration}" id="month"/>
+    <div style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{duration}">duration errors</div>
+
+    <br>
+    <input type="submit" value="Update!"/>
+</form>
+</body>
+</html>
